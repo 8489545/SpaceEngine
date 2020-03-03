@@ -50,9 +50,6 @@ void App::Run()
 		}
 		else
 		{
-			//printf("%f %f\n", INPUT->GetMousePos().x, INPUT->GetMousePos().y);
-			//printf("%f %f\n", timeDelta, Time);
-			//printf("fps : %f\n",fps);
 			Renderer::GetInst()->Begin();
 			SceneDirector::GetInst()->Update(timeDelta, Time);
 			DeltaTime = timeDelta;
