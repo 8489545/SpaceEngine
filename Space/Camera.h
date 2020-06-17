@@ -24,7 +24,6 @@ public:
 	void Init();
 	void Translate();
 	void Follow(Object* obj);
-	void Zoom();
 	void Update(float deltaTime, float time);
 	void Render();
 };

@@ -31,11 +31,6 @@ void Camera::Follow(Object* obj)
 	}
 }
 
-void Camera::Zoom()
-{
-}
-
-
 void Camera::Update(float deltaTime, float time)
 {
 	Translate();
