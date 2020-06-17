@@ -16,6 +16,12 @@ public:
 
 		return m_Instance;
 	}
+
+	static void ReleaseInst()
+	{
+		delete m_Instance;
+		m_Instance = NULL;
+	}
 };
 
 template<class T>
