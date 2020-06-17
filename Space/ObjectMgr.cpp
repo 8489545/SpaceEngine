@@ -13,11 +13,10 @@ ObjectMgr::~ObjectMgr()
 
 void ObjectMgr::Release()
 {
-	for (auto& iter : m_Objects)
+	for (auto iter = m_Objects.begin(); iter != m_Objects.end(); iter++)
 	{
-		SafeDelete(iter);
+		(*iter)->SetDestroy(true);
 	}
-	m_Objects.clear();
 }
 
 void ObjectMgr::DeleteCheak()
