@@ -105,7 +105,7 @@ LRESULT App::WndProc(HWND hWnd, UINT Msg, WPARAM wParam, LPARAM lParam)
 bool App::_CreateWindow()
 {
 	WNDCLASS wc = {};
-	wc.lpszClassName = L"ColorfulHero";
+	wc.lpszClassName = L"Space";
 	wc.hCursor = LoadCursor(0, IDC_ARROW);
 	wc.lpfnWndProc = WndProc;
 
