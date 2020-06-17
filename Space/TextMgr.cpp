@@ -56,3 +56,12 @@ void TextMgr::SetColor(int a, int r, int g, int b)
 {
 	m_Color = D3DCOLOR_ARGB(a, r, g, b);
 }
+
+void TextMgr::Release()
+{
+	if (m_pFont != nullptr)
+	{
+		m_pFont->Release();
+		m_pFont = nullptr;
+	}
+}
