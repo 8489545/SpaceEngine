@@ -34,7 +34,6 @@ void Camera::Follow(Object* obj)
 void Camera::Update(float deltaTime, float time)
 {
 	Translate();
-	//Zoom();
 
 	if (m_Rotation >= 360)
 		m_Rotation = 0;
