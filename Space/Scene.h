@@ -5,9 +5,9 @@ public:
 	Scene();
 	~Scene();
 
-	virtual void Init();
-	virtual void Release();
-	virtual void Update(float delatTime, float Time);
-	virtual void Render();
+	virtual void Init() = 0;
+	virtual void Release() = 0;
+	virtual void Update(float delatTime, float Time) = 0;
+	virtual void Render() = 0;
 };
 
