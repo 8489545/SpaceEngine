@@ -18,7 +18,6 @@ public:
 	~Animation();
 
 	void SetFrame(int frame) { m_CurrentFrame = frame; }
-	void AddFrame(std::wstring fileName);
 	void AddContinueFrame(std::wstring fileName, int firstFrame, int lastFrame);
 
 	void Init(int delay, bool play);

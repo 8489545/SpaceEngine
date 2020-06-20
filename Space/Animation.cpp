@@ -17,13 +17,6 @@ Animation::~Animation()
 {
 }
 
-void Animation::AddFrame(std::wstring fileName)
-{
-	auto sprite = Sprite::Create(fileName);
-	sprite->SetParent(this);
-	m_Anim.push_back(sprite);
-}
-
 void Animation::AddContinueFrame(std::wstring fileName, int firstFrame, int lastFrame)
 {
 	if (firstFrame < lastFrame)
