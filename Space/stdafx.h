@@ -15,7 +15,6 @@ inline void SafeDelete(T*& x);
 #include<iostream>
 #include<d3d9.h>
 #include<d3dx9.h>
-#include<dsound.h>
 #include<map>
 #include<list>
 #include<ctime>
@@ -23,6 +22,7 @@ inline void SafeDelete(T*& x);
 #include<string>
 #include<sstream>
 #include<cmath>
+#include<mmsystem.h>
 //
 
 #include"Singleton.h"

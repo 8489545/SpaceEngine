@@ -20,6 +20,8 @@ void MainScene::Init()
 	m_Text = new TextMgr();
 	m_Text->Init(32, true, false, "Arial");
 	m_Text->SetColor(255, 255, 255, 255);
+
+	SoundMgr::GetInst()->Play(L"Test.wav", true);
 }
 
 void MainScene::Release()
