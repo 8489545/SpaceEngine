@@ -34,8 +34,6 @@ void App::Run()
 
 	while (msg.message != WM_QUIT)
 	{
-		static DWORD frameCount = 0;
-		static float timeElapsed = 0.0f;
 		static DWORD lastTime = timeGetTime();
 		static float fps = 0.f;
 
