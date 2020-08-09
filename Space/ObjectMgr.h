@@ -6,7 +6,6 @@ class ObjectMgr : public Singleton<ObjectMgr>
 {
 public:
 	std::list<Object*> m_Objects;
-	std::list<Object*> m_UI;
 
 	struct stLISTsort
 	{
