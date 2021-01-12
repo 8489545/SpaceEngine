@@ -45,7 +45,5 @@ void Camera::Render()
 	D3DXMatrixTranslation(&mTrans, -m_Position.x, -m_Position.y, 1.f);
 	D3DXMatrixScaling(&mScale, m_Scale.x, m_Scale.y, 1.f);
 
-	// Ä«¸Þ¶ó 
-	//mScale* mRot* mTrans
 	mWorld = mScale * mRot * mTrans;
 }

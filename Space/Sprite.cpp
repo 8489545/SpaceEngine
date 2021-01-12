@@ -65,15 +65,21 @@ void Sprite::Render()
 	Camera::GetInst()->Render();
 	m_pSp->Begin(D3DXSPRITE_ALPHABLEND);
 
+	Matrix transForm = Camera::GetInst()->GetWorld() * GetMatrix();
+
 	if (m_Tag == "UI")
-		m_pSp->SetTransform(&GetMatrix());
+		transForm = GetMatrix();
 	else
-		m_pSp->SetTransform(&(Camera::GetInst()->GetWorld() * GetMatrix()));
+		transForm = Camera::GetInst()->GetWorld() * GetMatrix();
+	
+	m_pSp->SetTransform(&transForm);
+
+	D3DXVECTOR3 center = D3DXVECTOR3(m_Size.x / 2, m_Size.y / 2, 0);
 
 	if (m_Visible == false)
-		m_pSp->Draw(m_Texture->GetTexture(), &m_Rect, &D3DXVECTOR3(m_Size.x / 2, m_Size.y / 2, 0), 0, D3DCOLOR_ARGB(0, R, G, B));
+		m_pSp->Draw(m_Texture->GetTexture(), &m_Rect, &center, 0, D3DCOLOR_ARGB(0, R, G, B));
 	else
-		m_pSp->Draw(m_Texture->GetTexture(), &m_Rect, &D3DXVECTOR3(m_Size.x / 2, m_Size.y / 2, 0), 0, D3DCOLOR_ARGB(A, R, G, B));
+		m_pSp->Draw(m_Texture->GetTexture(), &m_Rect, &center, 0, D3DCOLOR_ARGB(A, R, G, B));
 
 	m_pSp->End();
 }
