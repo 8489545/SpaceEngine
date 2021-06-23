@@ -7,8 +7,8 @@ TextMgr::TextMgr()
 
 	m_FontRect.top = 0;
 	m_FontRect.left = 0;
-	m_FontRect.right = 1920;
-	m_FontRect.bottom = 1080;
+	m_FontRect.right = App::GetInst()->m_Width;
+	m_FontRect.bottom = App::GetInst()->m_Height;
 
 	m_pFont = NULL;
 	m_Angle = 0;
@@ -32,8 +32,6 @@ bool TextMgr::Init(int height, bool bold, bool italic, const std::string& fontna
 
 	if (FAILED(hr))
 		return false;
-
-	D3DXMatrixTransformation2D(&m_wMat, NULL, 0.0f, NULL, NULL, 0.0f, NULL);
 
 	return true;
 }

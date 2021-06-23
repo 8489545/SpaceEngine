@@ -1,4 +1,5 @@
 #pragma once
+class Animation;
 class EffectMgr : public Object
 {
 	Animation* Effect;

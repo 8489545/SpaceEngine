@@ -1,4 +1,5 @@
 #pragma once
+class Scene;
 class SceneDirector : public Singleton<SceneDirector>
 {
 	Scene* m_CurrentScene;

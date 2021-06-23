@@ -1,5 +1,6 @@
 #include"stdafx.h"
 #include"MainScene.h"
+#include"SceneDirector.h"
 
 INT WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, INT)
 {

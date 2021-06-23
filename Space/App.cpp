@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "App.h"
+#include"SceneDirector.h"
+#include"ObjectMgr.h"#include"Object.h"
 
 App::App()
 {

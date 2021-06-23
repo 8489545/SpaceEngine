@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include"Animation.h"
 #include "EffectMgr.h"
 
 EffectMgr::EffectMgr(std::wstring filename, int start, int speed, int end, Vec2 Pos)

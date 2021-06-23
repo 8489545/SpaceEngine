@@ -1,4 +1,6 @@
 #pragma once
+class Sprite;
+class Object;
 class Animation : public Object
 {
 private:

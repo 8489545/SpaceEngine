@@ -2,6 +2,7 @@
 #include"Sprite.h"
 #include"Texture.h"
 #include"ResourceMgr.h"
+#include"Camera.h"
 
 Sprite::Sprite()
 	: m_pSp(Renderer::GetInst()->GetSprite())

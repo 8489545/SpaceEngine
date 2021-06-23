@@ -1,5 +1,8 @@
 #include "stdafx.h"
+#include"Sprite.h"
+#include"Object.h"
 #include "Animation.h"
+#include"App.h"
 
 Animation::Animation()
 	: m_AutoPlay(0)

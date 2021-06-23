@@ -4,9 +4,6 @@
     <Filter Include="FrameWork">
       <UniqueIdentifier>{7b65bbed-6e83-4cc8-9c4f-961050cae57b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="FrameWork\Node">
-      <UniqueIdentifier>{43ab373c-a976-457f-bcee-bbfc43eb3693}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Game">
       <UniqueIdentifier>{bff92479-aded-4bbb-a31f-bec299500907}</UniqueIdentifier>
     </Filter>
@@ -25,6 +22,12 @@
     <Filter Include="Game\Object\Scene">
       <UniqueIdentifier>{6a0b488c-024d-464b-b7e5-e43bc432ea1d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameWork\Render">
+      <UniqueIdentifier>{43ab373c-a976-457f-bcee-bbfc43eb3693}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="FrameWork\Game">
+      <UniqueIdentifier>{33340615-6e6c-4b99-a6a3-d0da7f72a1fc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Space.cpp">
@@ -39,35 +42,20 @@
     <ClCompile Include="Input.cpp">
       <Filter>FrameWork\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Renderer.cpp">
-      <Filter>FrameWork\Core</Filter>
-    </ClCompile>
     <ClCompile Include="ResourceMgr.cpp">
       <Filter>FrameWork\Core</Filter>
     </ClCompile>
     <ClCompile Include="SceneDirector.cpp">
       <Filter>FrameWork\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Animation.cpp">
-      <Filter>FrameWork\Node</Filter>
-    </ClCompile>
     <ClCompile Include="Camera.cpp">
-      <Filter>FrameWork\Node</Filter>
-    </ClCompile>
-    <ClCompile Include="Object.cpp">
-      <Filter>FrameWork\Node</Filter>
-    </ClCompile>
-    <ClCompile Include="Scene.cpp">
-      <Filter>FrameWork\Node</Filter>
+      <Filter>FrameWork\Render</Filter>
     </ClCompile>
     <ClCompile Include="Sprite.cpp">
-      <Filter>FrameWork\Node</Filter>
+      <Filter>FrameWork\Render</Filter>
     </ClCompile>
     <ClCompile Include="Texture.cpp">
-      <Filter>FrameWork\Node</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionMgr.cpp">
-      <Filter>Game\Mgrs</Filter>
+      <Filter>FrameWork\Render</Filter>
     </ClCompile>
     <ClCompile Include="EffectMgr.cpp">
       <Filter>Game\Mgrs</Filter>
@@ -84,6 +72,18 @@
     <ClCompile Include="MainScene.cpp">
       <Filter>Game\Object\Scene</Filter>
     </ClCompile>
+    <ClCompile Include="Animation.cpp">
+      <Filter>FrameWork\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Object.cpp">
+      <Filter>FrameWork\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Scene.cpp">
+      <Filter>FrameWork\Game</Filter>
+    </ClCompile>
+    <ClCompile Include="Renderer.cpp">
+      <Filter>FrameWork\Render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -98,35 +98,20 @@
     <ClInclude Include="Input.h">
       <Filter>FrameWork\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Renderer.h">
-      <Filter>FrameWork\Core</Filter>
-    </ClInclude>
     <ClInclude Include="ResourceMgr.h">
       <Filter>FrameWork\Core</Filter>
     </ClInclude>
     <ClInclude Include="SceneDirector.h">
       <Filter>FrameWork\Core</Filter>
     </ClInclude>
-    <ClInclude Include="Animation.h">
-      <Filter>FrameWork\Node</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
-      <Filter>FrameWork\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>FrameWork\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="Scene.h">
-      <Filter>FrameWork\Node</Filter>
+      <Filter>FrameWork\Render</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
-      <Filter>FrameWork\Node</Filter>
+      <Filter>FrameWork\Render</Filter>
     </ClInclude>
     <ClInclude Include="Texture.h">
-      <Filter>FrameWork\Node</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionMgr.h">
-      <Filter>Game\Mgrs</Filter>
+      <Filter>FrameWork\Render</Filter>
     </ClInclude>
     <ClInclude Include="EffectMgr.h">
       <Filter>Game\Mgrs</Filter>
@@ -142,6 +127,18 @@
     </ClInclude>
     <ClInclude Include="MainScene.h">
       <Filter>Game\Object\Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>FrameWork\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>FrameWork\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>FrameWork\Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Renderer.h">
+      <Filter>FrameWork\Render</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

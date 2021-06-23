@@ -20,7 +20,6 @@ inline void SafeDelete(T*& x);
 #include<ctime>
 #include<vector>
 #include<string>
-#include<sstream>
 #include<cmath>
 #include<mmsystem.h>
 //
@@ -30,16 +29,9 @@ inline void SafeDelete(T*& x);
 #include"Renderer.h"
 #include"App.h"
 #include"Object.h"
-#include"Scene.h"
 #include"ObjectMgr.h"
-#include"CollisionMgr.h"
-#include"SceneDirector.h"
-#include"TextMgr.h"
-#include"SoundMgr.h"
 #include"Camera.h"
-#include"Sprite.h"
-#include"Animation.h"
-#include"EffectMgr.h"
+#include"Scene.h"
 //
 
 template<class T>

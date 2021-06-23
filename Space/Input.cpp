@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Input.h"
-
+#include"Camera.h"
 
 Input::Input()
 	: m_MousePosition(0.f, 0.f)
