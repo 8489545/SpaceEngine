@@ -71,7 +71,7 @@ bool Renderer::Init(int width, int height, bool windowMode)
 void Renderer::Begin()
 {
 	m_pDevice->BeginScene();
-	m_pDevice->Clear(0, 0, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 128, 128), 1.f, 0);
+	m_pDevice->Clear(0, 0, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 128, 128), 1.f, 0);
 }
 
 void Renderer::End()
