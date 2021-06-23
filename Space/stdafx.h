@@ -32,6 +32,7 @@ inline void SafeDelete(T*& x);
 #include"ObjectMgr.h"
 #include"Camera.h"
 #include"Scene.h"
+#include"SceneDirector.h"
 //
 
 template<class T>

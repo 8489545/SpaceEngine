@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "App.h"
 #include"SceneDirector.h"
-#include"ObjectMgr.h"#include"Object.h"
 
 App::App()
 {
@@ -19,11 +18,15 @@ bool App::Init(int width, int height, bool windowMode)
 
 
 	if (!_CreateWindow())
+	{
+		MessageBox(0, L"윈도우 초기화 실패", 0, MB_OK);
 		return false;
-
+	}
 	if (!_CreateRenderer())
+	{
+		MessageBox(0, L"렌더러 초기화 실패", 0, MB_OK);
 		return false;
-
+	}
 	Time = 0.0f;
 	return true;
 }
