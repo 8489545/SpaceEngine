@@ -35,6 +35,8 @@ inline void SafeDelete(T*& x);
 #include"SceneDirector.h"
 //
 
+#include"Triangle.h"
+
 template<class T>
 inline void SafeDelete(T*& x)
 {

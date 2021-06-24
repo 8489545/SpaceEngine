@@ -5,6 +5,8 @@ public:
 	MainScene();
 	~MainScene();
 
+	Triangle triangle;
+
 	void Init();
 	void Release();
 
