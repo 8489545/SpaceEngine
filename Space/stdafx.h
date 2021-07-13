@@ -24,6 +24,7 @@ inline void SafeDelete(T*& x);
 #include<mmsystem.h>
 //
 
+#include"Types.h"
 #include"Singleton.h"
 #include"Input.h"
 #include"Renderer.h"
@@ -33,9 +34,8 @@ inline void SafeDelete(T*& x);
 #include"Camera.h"
 #include"Scene.h"
 #include"SceneDirector.h"
-//
-
 #include"Triangle.h"
+//
 
 template<class T>
 inline void SafeDelete(T*& x)

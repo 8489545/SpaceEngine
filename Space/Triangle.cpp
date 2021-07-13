@@ -1,8 +1,6 @@
 #include "stdafx.h"
 #include "Triangle.h"
 
-const DWORD Vertex::FVF = D3DFVF_XYZ | D3DFVF_DIFFUSE;
-
 Triangle::Triangle()
 {
 }
@@ -13,23 +11,23 @@ Triangle::~Triangle()
 
 bool Triangle::Init()
 {
-    Renderer::GetInst()->GetDevice()->CreateVertexBuffer(3 * sizeof(Vertex), D3DUSAGE_WRITEONLY, Vertex::FVF, D3DPOOL_MANAGED, &m_Triangle,0);
+    CUSTOMVERTEX vertices[] =
+    {
+        {150.f,50.f,0.5f,1.f,D3DCOLOR_XRGB(255,0,0)},
+        {250.f,250.f,0.5f,1.f,D3DCOLOR_XRGB(0,255,0)},
+        {50.f,250.f,0.5f,1.f,D3DCOLOR_XRGB(0,0,255)}
+    };
 
+    if(FAILED(Renderer::GetInst()->GetDevice()->CreateVertexBuffer(sizeof(vertices),0,FVF,D3DPOOL_DEFAULT,&m_pVB,NULL)))
+        return false;
 
-    Vertex* vertices;
+    void* pVertices;
 
-    m_Triangle->Lock(0, 0, (void**)&vertices, 0);
+    if (FAILED(m_pVB->Lock(0, sizeof(vertices), (void**)&pVertices, 0)))
+        return false;
 
-    vertices[0] = Vertex(-1.f, 0.f, 2.f,D3DCOLOR_XRGB(255,0,0));
-    vertices[1] = Vertex(0.f, 1.f, 2.f,D3DCOLOR_XRGB(0,255,0));
-    vertices[2] = Vertex(1.f, 0.f, 2.f, D3DCOLOR_XRGB(0, 0, 255));
-    
-    m_Triangle->Unlock();
-
-    Matrix proj;
-    D3DXMatrixPerspectiveFovLH(&proj, D3DX_PI * 0.5, (float)App::GetInst()->m_Width / (float)App::GetInst()->m_Height, 1.f, 1000.f);
-    Renderer::GetInst()->GetDevice()->SetTransform(D3DTS_PROJECTION, &proj);
-    Renderer::GetInst()->GetDevice()->SetRenderState(D3DRS_SHADEMODE, D3DSHADE_GOURAUD);
+    memcpy(pVertices, vertices, sizeof(vertices));
+    m_pVB->Unlock();
 
     return true;
 }
@@ -38,10 +36,13 @@ void Triangle::Release()
 {
 }
 
+void Triangle::Update()
+{
+}
+
 void Triangle::Render()
 {
-
-    Renderer::GetInst()->GetDevice()->SetStreamSource(0, m_Triangle, 0, sizeof(Vertex));
-    Renderer::GetInst()->GetDevice()->SetFVF(Vertex::FVF);
-    Renderer::GetInst()->GetDevice()->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);
+    Renderer::GetInst()->GetDevice()->SetStreamSource(0, m_pVB, 0, sizeof(CUSTOMVERTEX));
+    Renderer::GetInst()->GetDevice()->SetFVF(FVF);
+    Renderer::GetInst()->GetDevice()->DrawPrimitive(D3DPT_TRIANGLEFAN, 0, 1);
 }
