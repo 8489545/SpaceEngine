@@ -90,6 +90,9 @@
     <ClCompile Include="Types.cpp">
       <Filter>Main</Filter>
     </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -151,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="Types.h">
       <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>Game\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

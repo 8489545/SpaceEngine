@@ -6,6 +6,8 @@ public:
 	~MainScene();
 
 	Triangle* triangle;
+	Terrain* terrain;
+	
 
 	void Init();
 	void Release();

@@ -11,9 +11,10 @@ MainScene::~MainScene()
 
 void MainScene::Init()
 {
-    triangle = new Triangle();
+    terrain = Terrain::Create(L"Painting/terrain.png", L"Painting/mountains.bmp");
 
-    triangle->Init();
+    //triangle = new Triangle();
+    //triangle->Init();
 }
 
 void MainScene::Release()
@@ -27,5 +28,6 @@ void MainScene::Update(float deltaTime, float time)
 
 void MainScene::Render()
 {
-    triangle->Render();
+    terrain->Render();
+    //triangle->Render();
 }
