@@ -1,49 +1,65 @@
 #include"stdafx.h"
 #include "Camera.h"
-Camera::Camera()
+Camera::Camera() :
+    vEyePt(0.f, 100.f, -256.f)
+    , rotation(0.f, 0.f)
+    , vLookatPt(0.f, 0.f, 0.f)
+    , vRightVec(0.f, 0.f, 0.f)
+    , vUpVec(0.f, 1.f, 0.f)
+    , cameraFreeView(true)
 {
-	Init();
+    D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 1.f, 1.f, 1000.f);
+    Renderer::GetInst()->GetDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
+
+    D3DXMatrixIdentity(&matWorld);
 }
 
 Camera::~Camera()
 {
 }
 
-void Camera::Init()
+void Camera::Update()
 {
-	m_Rotation = 0;
-	m_Position = Vec2(0, 0);
-	m_Scale = Vec2(1.f, 1.f);
-	Follow(nullptr);
+    auto device = Renderer::GetInst()->GetDevice();
+
+    D3DXMATRIXA16 matRot;
+    D3DXMATRIXA16 matRotX;
+    D3DXMATRIXA16 matRotY;
+    D3DXVECTOR3 vLook;
+
+    D3DXMatrixRotationY(&matRotX, rotation.x);
+    D3DXMatrixRotationX(&matRotY, rotation.y);
+
+    matRot = matRotY * matRotX;
+
+    D3DXVECTOR3 fy(0, 0, 1);
+    D3DXVec3TransformNormal(&vLook, &fy, &matRot);
+    D3DXVec3Cross(&vRightVec, &vUpVec, &vLookatPt);
+    D3DXVec3Normalize(&vRightVec, &vRightVec);
+
+    vLookatPt = vEyePt + vLook;
+
+    vLook *= 0.5f;
+    vRightVec *= 0.5f;
+
+    if (INPUT->GetKey('W') == KeyState::PRESS)
+    {
+        vEyePt += vLook;
+        vLookatPt += vLook;
+    }
+    if (INPUT->GetKey('S') == KeyState::PRESS)
+    {
+        vEyePt -= vLook;
+        vLookatPt -= vLook;
+    }
+
+    SetTransform();
 }
 
-void Camera::Translate()
+void Camera::SetTransform()
 {
+    Renderer::GetInst()->GetDevice()->SetTransform(D3DTS_WORLD, &matWorld);
 
-}
-
-void Camera::Follow(Object* obj)
-{
-	if (obj != nullptr)
-	{
-		m_Position.x = obj->m_Position.x - App::GetInst()->m_Width / 2;
-		m_Position.y = obj->m_Position.y - App::GetInst()->m_Height / 2;
-	}
-}
-
-void Camera::Update(float deltaTime, float time)
-{
-	Translate();
-
-	if (m_Rotation >= 360)
-		m_Rotation = 0;
-}
-
-void Camera::Render()
-{
-	D3DXMatrixRotationZ(&mRot, D3DXToRadian(m_Rotation));
-	D3DXMatrixTranslation(&mTrans, -m_Position.x, -m_Position.y, 1.f);
-	D3DXMatrixScaling(&mScale, m_Scale.x, m_Scale.y, 1.f);
-
-	mWorld = mScale * mRot * mTrans;
+    D3DXMatrixLookAtLH(&matView, &vEyePt, &vLookatPt, &vUpVec);
+    Renderer::GetInst()->GetDevice()->SetTransform(D3DTS_VIEW, &matView);
 }

@@ -63,17 +63,11 @@ void Sprite::Render()
 			m_Position.x + m_Size.x / 2, m_Position.y + m_Size.y / 2);
 	}
 
-	Camera::GetInst()->Render();
 	m_pSp->Begin(D3DXSPRITE_ALPHABLEND);
 
-	Matrix transForm = Camera::GetInst()->GetWorld() * GetMatrix();
-
-	if (m_Tag == "UI")
-		transForm = GetMatrix();
-	else
-		transForm = Camera::GetInst()->GetWorld() * GetMatrix();
+	Matrix transform = GetMatrix();
 	
-	m_pSp->SetTransform(&transForm);
+	m_pSp->SetTransform(&transform);
 
 	D3DXVECTOR3 center = D3DXVECTOR3(m_Size.x / 2, m_Size.y / 2, 0);
 

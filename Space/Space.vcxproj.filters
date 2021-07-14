@@ -48,9 +48,6 @@
     <ClCompile Include="SceneDirector.cpp">
       <Filter>FrameWork\Core</Filter>
     </ClCompile>
-    <ClCompile Include="Camera.cpp">
-      <Filter>FrameWork\Render</Filter>
-    </ClCompile>
     <ClCompile Include="Sprite.cpp">
       <Filter>FrameWork\Render</Filter>
     </ClCompile>
@@ -93,6 +90,9 @@
     <ClCompile Include="Terrain.cpp">
       <Filter>Game\Object</Filter>
     </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Game\Mgrs</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="App.h">
@@ -112,9 +112,6 @@
     </ClInclude>
     <ClInclude Include="SceneDirector.h">
       <Filter>FrameWork\Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Camera.h">
-      <Filter>FrameWork\Render</Filter>
     </ClInclude>
     <ClInclude Include="Sprite.h">
       <Filter>FrameWork\Render</Filter>
@@ -157,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="Terrain.h">
       <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Game\Mgrs</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

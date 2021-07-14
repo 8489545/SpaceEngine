@@ -24,7 +24,6 @@ public:
     bool InitVB();
     bool InitIB();
 
-    void SetUpCamera();
     void SetUpLights();
     void Animate();
 

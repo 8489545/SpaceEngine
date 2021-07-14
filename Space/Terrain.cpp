@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "Terrain.h"
 
-Terrain::Terrain()
+Terrain::Terrain() : m_pDev(Renderer::GetInst()->GetDevice())
 {
 }
 
@@ -26,13 +26,13 @@ Terrain* Terrain::Create(std::wstring diffuse, std::wstring height)
 
 bool Terrain::Init(std::wstring diffuse, std::wstring height)
 {
-    if (FAILED(D3DXCreateTextureFromFile(Renderer::GetInst()->GetDevice(), diffuse.c_str(), &m_pTexDiffuse)))
+    if (FAILED(D3DXCreateTextureFromFile(m_pDev, diffuse.c_str(), &m_pTexDiffuse)))
     {
         MessageBox(NULL, L"Can't open the texture file.", L"Error", MB_OK);
         return false;
     }
 
-    if (FAILED(D3DXCreateTextureFromFileEx(Renderer::GetInst()->GetDevice(), height.c_str(), D3DX_DEFAULT, D3DX_DEFAULT, D3DX_DEFAULT, 0,
+    if (FAILED(D3DXCreateTextureFromFileEx(m_pDev, height.c_str(), D3DX_DEFAULT, D3DX_DEFAULT, D3DX_DEFAULT, 0,
         D3DFMT_X8R8G8B8, D3DPOOL_MANAGED, D3DX_DEFAULT, D3DX_DEFAULT, 0, NULL, NULL, &m_pTexHeightMap)))
     {
         MessageBox(NULL, L"Can't open the texture file.", L"Error", MB_OK);
@@ -55,7 +55,7 @@ bool Terrain::InitVB()
     cxHeight = desc.Width;
     czHegiht = desc.Height;
 
-    if (FAILED(Renderer::GetInst()->GetDevice()->CreateVertexBuffer(cxHeight * czHegiht * sizeof(TEXVERTEX), 0,
+    if (FAILED(m_pDev->CreateVertexBuffer(cxHeight * czHegiht * sizeof(TEXVERTEX), 0,
         TexVertexFVF, D3DPOOL_DEFAULT, &m_pVB, NULL)))
         return false;
 
@@ -97,7 +97,7 @@ bool Terrain::InitVB()
 
 bool Terrain::InitIB()
 {
-    if(FAILED(Renderer::GetInst()->GetDevice()->CreateIndexBuffer((cxHeight - 1) * (czHegiht - 1) * 2 * sizeof(INDEX)
+    if(FAILED(m_pDev->CreateIndexBuffer((cxHeight - 1) * (czHegiht - 1) * 2 * sizeof(INDEX)
         ,0,D3DFMT_INDEX16,D3DPOOL_DEFAULT,&m_pIB,NULL)))
         return false;
 
@@ -129,25 +129,6 @@ bool Terrain::InitIB()
     return true;
 }
 
-void Terrain::SetUpCamera()
-{
-    D3DXMATRIXA16 matWorld;
-    D3DXMatrixIdentity(&matWorld);
-    Renderer::GetInst()->GetDevice()->SetTransform(D3DTS_WORLD, &matWorld);
-
-    D3DXVECTOR3 vEyePt(0.f, 100.f, -(float)czHegiht);
-    D3DXVECTOR3 vLockatPt(0.f, 0.f, 0.f);
-    D3DXVECTOR3 vUpVec(0.f, 1.f, 0.f);
-
-    D3DXMATRIXA16 matView;
-    D3DXMatrixLookAtLH(&matView, &vEyePt, &vLockatPt, &vUpVec);
-    Renderer::GetInst()->GetDevice()->SetTransform(D3DTS_VIEW, &matView);
-
-    D3DXMATRIXA16 matProj;
-    D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 1.f, 1.f, 1000.f);
-    Renderer::GetInst()->GetDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
-}
-
 void Terrain::SetUpLights()
 {
     D3DMATERIAL9 mtrl;
@@ -156,7 +137,7 @@ void Terrain::SetUpLights()
     mtrl.Diffuse.r = mtrl.Ambient.r = 1.f;
     mtrl.Diffuse.g = mtrl.Ambient.g = 1.f;
     mtrl.Diffuse.b = mtrl.Ambient.b = 1.f;
-    Renderer::GetInst()->GetDevice()->SetMaterial(&mtrl);
+    m_pDev->SetMaterial(&mtrl);
 
     D3DXVECTOR3 vecDir;
     D3DLIGHT9 light;
@@ -170,11 +151,11 @@ void Terrain::SetUpLights()
 
     D3DXVec3Normalize((D3DXVECTOR3*)&light.Direction, &vecDir);
     light.Range = 1000.f;
-    Renderer::GetInst()->GetDevice()->SetLight(0, &light);
-    Renderer::GetInst()->GetDevice()->LightEnable(0, true);
-    Renderer::GetInst()->GetDevice()->SetRenderState(D3DRS_LIGHTING, true);
+    m_pDev->SetLight(0, &light);
+    m_pDev->LightEnable(0, true);
+    m_pDev->SetRenderState(D3DRS_LIGHTING, true);
 
-    Renderer::GetInst()->GetDevice()->SetRenderState(D3DRS_AMBIENT, 0x00909090);
+    m_pDev->SetRenderState(D3DRS_AMBIENT, 0x00909090);
 }
 
 void Terrain::Animate()
@@ -184,11 +165,9 @@ void Terrain::Animate()
 
     DWORD d = GetTickCount64() % ((int)((D3DX_PI * 2) * 1000.f));
 
-    //D3DXMatrixRotationY(&matAni, d / 1000.f);
+    D3DXMatrixRotationY(&matAni, d / 1000.f);
 
-    D3DXMatrixIdentity(&matAni);
-
-    SetUpCamera();
+    //D3DXMatrixIdentity(&matAni);
     SetUpLights();
 }
 
@@ -204,17 +183,17 @@ void Terrain::Render()
 {
     Animate();
 
-    Renderer::GetInst()->GetDevice()->SetTexture(0, m_pTexDiffuse);
-    Renderer::GetInst()->GetDevice()->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
-    Renderer::GetInst()->GetDevice()->SetTextureStageState(0, D3DTSS_TEXCOORDINDEX, 0);
+    m_pDev->SetTexture(0, m_pTexDiffuse);
+    m_pDev->SetSamplerState(0, D3DSAMP_MAGFILTER, D3DTEXF_LINEAR);
+    m_pDev->SetTextureStageState(0, D3DTSS_TEXCOORDINDEX, 0);
 
-    Renderer::GetInst()->GetDevice()->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
-    Renderer::GetInst()->GetDevice()->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
-    Renderer::GetInst()->GetDevice()->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
+    m_pDev->SetTextureStageState(0, D3DTSS_COLOROP, D3DTOP_MODULATE);
+    m_pDev->SetTextureStageState(0, D3DTSS_COLORARG1, D3DTA_TEXTURE);
+    m_pDev->SetTextureStageState(0, D3DTSS_COLORARG2, D3DTA_DIFFUSE);
 
-    Renderer::GetInst()->GetDevice()->SetTransform(D3DTS_WORLD, &matAni);
-    Renderer::GetInst()->GetDevice()->SetStreamSource(0, m_pVB, 0, sizeof(TEXVERTEX));
-    Renderer::GetInst()->GetDevice()->SetFVF(TexVertexFVF);
-    Renderer::GetInst()->GetDevice()->SetIndices(m_pIB);
-    Renderer::GetInst()->GetDevice()->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, cxHeight * czHegiht, 0, (cxHeight - 1) * (czHegiht - 1) * 2);
+    m_pDev->SetTransform(D3DTS_WORLD, &matAni);
+    m_pDev->SetStreamSource(0, m_pVB, 0, sizeof(TEXVERTEX));
+    m_pDev->SetFVF(TexVertexFVF);
+    m_pDev->SetIndices(m_pIB);
+    m_pDev->DrawIndexedPrimitive(D3DPT_TRIANGLELIST, 0, 0, cxHeight * czHegiht, 0, (cxHeight - 1) * (czHegiht - 1) * 2);
 }

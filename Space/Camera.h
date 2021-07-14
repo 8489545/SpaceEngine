@@ -1,29 +1,24 @@
 #pragma once
-class Camera : public Singleton<Camera>
+class Camera
 {
 private:
-	Matrix mRot;
-	Matrix mTrans;
-	Matrix mScale;
-	Matrix mWorld;
+	D3DXMATRIXA16 matWorld;
+	D3DXMATRIXA16 matView;
+	D3DXMATRIXA16 matProj;
+
+	D3DXVECTOR3 vEyePt;
+	D3DXVECTOR3 vLookatPt;
+	D3DXVECTOR3 vUpVec;
+	D3DXVECTOR3 vRightVec;
+
+	bool cameraFreeView;
+
+	D3DXVECTOR2 rotation;
+
 public:
 	Camera();
-	~Camera();
+	virtual ~Camera();
 
-
-	float m_Rotation;
-	Vec2 m_Position;
-	Vec2 m_Scale;
-
-
-	Matrix GetWorld()
-	{
-		return mWorld;
-	}
-
-	void Init();
-	void Translate();
-	void Follow(Object* obj);
-	void Update(float deltaTime, float time);
-	void Render();
+	void Update();
+	void SetTransform();
 };

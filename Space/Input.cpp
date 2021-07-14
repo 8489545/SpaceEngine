@@ -66,6 +66,6 @@ void Input::MouseUpdate()
 
 	ScreenToClient(App::GetInst()->GetHwnd(), &position);
 
-	m_MousePosition.x = static_cast<float>(position.x) + Camera::GetInst()->m_Position.x;
-	m_MousePosition.y = static_cast<float>(position.y) + Camera::GetInst()->m_Position.y;
+	m_MousePosition.x = static_cast<float>(position.x);
+	m_MousePosition.y = static_cast<float>(position.y);
 }

@@ -8,6 +8,8 @@ public:
 	Triangle* triangle;
 	Terrain* terrain;
 	
+	Camera* mainCamera;
+	
 
 	void Init();
 	void Release();
