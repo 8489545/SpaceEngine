@@ -7,6 +7,7 @@ Camera::Camera() :
     , vRightVec(0.f, 0.f, 0.f)
     , vUpVec(0.f, 1.f, 0.f)
     , cameraFreeView(true)
+    , onClick(false)
 {
     D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 1.f, 1.f, 1000.f);
     Renderer::GetInst()->GetDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
@@ -16,6 +17,26 @@ Camera::Camera() :
 
 Camera::~Camera()
 {
+}
+
+void Camera::Rotate()
+{
+    if (INPUT->GetMousePos().x - 30 > mousePos.x)
+    {
+        rotation.x += 0.3 * dt;
+    }
+    if (INPUT->GetMousePos().x + 30 < mousePos.x)
+    {
+        rotation.x -= 0.3 * dt;
+    }
+    if (INPUT->GetMousePos().y - 30 > mousePos.y)
+    {
+        rotation.y += 0.3 * dt;
+    }
+    if (INPUT->GetMousePos().y + 30 < mousePos.y)
+    {
+        rotation.y -= 0.3 * dt;
+    }
 }
 
 void Camera::Update()
@@ -51,6 +72,20 @@ void Camera::Update()
     {
         vEyePt -= vLook;
         vLookatPt -= vLook;
+    }
+
+    if (INPUT->GetButtonDown())
+    {
+        if (!onClick)
+        {
+            mousePos = INPUT->GetMousePos();
+        }
+        onClick = true;
+        Rotate();
+    }
+    else
+    {
+        onClick = false;
     }
 
     SetTransform();

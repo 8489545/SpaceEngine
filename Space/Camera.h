@@ -15,10 +15,16 @@ private:
 
 	D3DXVECTOR2 rotation;
 
+	D3DXVECTOR2 mousePos;
+
 public:
 	Camera();
 	virtual ~Camera();
 
+	bool onClick;
+
+
+	void Rotate();
 	void Update();
 	void SetTransform();
 };

@@ -165,9 +165,9 @@ void Terrain::Animate()
 
     DWORD d = GetTickCount64() % ((int)((D3DX_PI * 2) * 1000.f));
 
-    D3DXMatrixRotationY(&matAni, d / 1000.f);
+    //D3DXMatrixRotationY(&matAni, d / 1000.f);
 
-    //D3DXMatrixIdentity(&matAni);
+    D3DXMatrixIdentity(&matAni);
     SetUpLights();
 }
 
