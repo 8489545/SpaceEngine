@@ -7,10 +7,16 @@ public:
 
 	Triangle* triangle;
 	Terrain* terrain;
+	Cube* cube;
 
 	Sprite* test;
 	
 	Camera* mainCamera;
+	Camera* subCamera;
+
+	Camera* Cameras[2];
+
+	int nowCameraIndex;
 	
 
 	void Init();

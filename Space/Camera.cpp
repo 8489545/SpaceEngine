@@ -8,6 +8,7 @@ Camera::Camera() :
     , vUpVec(0.f, 1.f, 0.f)
     , cameraFreeView(true)
     , onClick(false)
+    , cameraSpeed(30)
 {
     D3DXMatrixPerspectiveFovLH(&matProj, D3DX_PI / 4, 1.f, 1.f, 1000.f);
     Renderer::GetInst()->GetDevice()->SetTransform(D3DTS_PROJECTION, &matProj);
@@ -38,7 +39,6 @@ void Camera::Rotate()
         rotation.y -= 1 * dt;
     }
 }
-
 void Camera::Update()
 {
     auto device = Renderer::GetInst()->GetDevice();
@@ -66,13 +66,23 @@ void Camera::Update()
 
     if (INPUT->GetKey('W') == KeyState::PRESS)
     {
-        vEyePt += vLook;
-        vLookatPt += vLook;
+        vEyePt += vLook * cameraSpeed * dt;
+        vLookatPt += vLook * cameraSpeed * dt;
     }
     if (INPUT->GetKey('S') == KeyState::PRESS)
     {
-        vEyePt -= vLook;
-        vLookatPt -= vLook;
+        vEyePt -= vLook * cameraSpeed * dt;
+        vLookatPt -= vLook * cameraSpeed * dt;
+    }
+    if (INPUT->GetKey('A') == KeyState::PRESS)
+    {
+        vEyePt += vRightVec * cameraSpeed * dt;
+        vLookatPt += vRightVec * cameraSpeed * dt;
+    }
+    if (INPUT->GetKey('D') == KeyState::PRESS)
+    {
+        vEyePt -= vRightVec * cameraSpeed * dt;
+        vLookatPt -= vRightVec * cameraSpeed * dt;
     }
 
     if (INPUT->GetButtonDown())

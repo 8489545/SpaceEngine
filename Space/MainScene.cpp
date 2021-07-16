@@ -17,9 +17,18 @@ void MainScene::Init()
     test->SetPosition(100, 100);
 
     mainCamera = new Camera();
+    subCamera = new Camera();
+
+    Cameras[0] = mainCamera;
+    Cameras[1] = subCamera;
+
+    nowCameraIndex = 0;
 
     triangle = new Triangle();
     triangle->Init();
+
+    cube = new Cube();
+    cube->Init();
 }
 
 void MainScene::Release()
@@ -28,13 +37,18 @@ void MainScene::Release()
 
 void MainScene::Update(float deltaTime, float time)
 {
-    mainCamera->Update();
+    if (INPUT->GetKey('1') == KeyState::DOWN)
+        nowCameraIndex = 0;
+    else if (INPUT->GetKey('2') == KeyState::DOWN)
+        nowCameraIndex = 1;
+
+    Cameras[nowCameraIndex]->Update();
 }
 
 void MainScene::Render()
 {
-    Renderer::GetInst()->GetDevice()->SetRenderState(D3DRS_LIGHTING, false);
-    terrain->Render();
+    //terrain->Render();
+    cube->Render();
     triangle->Render();
     //test->Render();
 }

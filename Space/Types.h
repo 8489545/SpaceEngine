@@ -3,7 +3,7 @@
 
 struct CUSTOMVERTEX
 {
-    float x, y, z, rhw;
+    float x, y, z;
     DWORD color;
 
 }typedef VERTEX;

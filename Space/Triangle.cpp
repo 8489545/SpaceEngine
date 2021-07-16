@@ -13,9 +13,9 @@ bool Triangle::Init()
 {
     VERTEX vertices[] =
     {
-        {150.f,50.f,0.f,1.f,D3DCOLOR_ARGB(255,255,0,0)},
-        {200.f,100.f,0.f,1.f,D3DCOLOR_ARGB(255,0,255,0)},
-        {100.f,50.f,0.f,1.f,D3DCOLOR_ARGB(255,0,0,255)}
+        {15.f,5.f,0.f,D3DCOLOR_ARGB(255,255,0,0)},
+        {25.f,25.f,0.f,D3DCOLOR_ARGB(255,0,255,0)},
+        {5.f,25.f,0.f,D3DCOLOR_ARGB(255,0,0,255)}
     };
 
     if(FAILED(Renderer::GetInst()->GetDevice()->CreateVertexBuffer(3 * sizeof(VERTEX),0,FVF,D3DPOOL_DEFAULT,&m_pVB,NULL)))
@@ -34,6 +34,8 @@ bool Triangle::Init()
 
 void Triangle::Release()
 {
+    if (m_pVB != NULL)
+        m_pVB->Release();
 }
 
 void Triangle::Render()

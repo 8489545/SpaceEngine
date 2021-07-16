@@ -35,6 +35,7 @@ inline void SafeDelete(T*& x);
 #include"Scene.h"
 #include"SceneDirector.h"
 #include"Triangle.h"
+#include"Cube.h"
 #include"Terrain.h"
 //
 

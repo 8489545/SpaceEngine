@@ -22,8 +22,10 @@ public:
 
 	bool onClick;
 
+	float cameraSpeed;
 
 	void Rotate();
+
 	void Update();
 	void SetTransform();
 };
