@@ -2,6 +2,7 @@
 class Triangle
 {
     LPDIRECT3DVERTEXBUFFER9 m_pVB;
+
 public:
     Triangle();
     ~Triangle();
@@ -10,7 +11,6 @@ public:
     void Release();
 
 
-    void Update();
     void Render();
 };
 

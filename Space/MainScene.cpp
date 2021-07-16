@@ -11,12 +11,15 @@ MainScene::~MainScene()
 
 void MainScene::Init()
 {
-    terrain = Terrain::Create(L"Painting/terrain.png", L"Painting/mountains.bmp");
+    terrain = Terrain::Create(L"Painting/terrain.png", L"Painting/height.bmp");
+
+    test = Sprite::Create(L"Painting/Test.png");
+    test->SetPosition(100, 100);
 
     mainCamera = new Camera();
 
-    //triangle = new Triangle();
-    //triangle->Init();
+    triangle = new Triangle();
+    triangle->Init();
 }
 
 void MainScene::Release()
@@ -30,6 +33,8 @@ void MainScene::Update(float deltaTime, float time)
 
 void MainScene::Render()
 {
+    Renderer::GetInst()->GetDevice()->SetRenderState(D3DRS_LIGHTING, false);
     terrain->Render();
-    //triangle->Render();
+    triangle->Render();
+    //test->Render();
 }

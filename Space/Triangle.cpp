@@ -13,12 +13,12 @@ bool Triangle::Init()
 {
     VERTEX vertices[] =
     {
-        {150.f,50.f,0.5f,1.f,D3DCOLOR_ARGB(255,255,0,0)},
-        {250.f,250.f,0.5f,1.f,D3DCOLOR_ARGB(255,0,255,0)},
-        {50.f,250.f,0.5f,1.f,D3DCOLOR_ARGB(255,0,0,255)}
+        {150.f,50.f,0.f,1.f,D3DCOLOR_ARGB(255,255,0,0)},
+        {200.f,100.f,0.f,1.f,D3DCOLOR_ARGB(255,0,255,0)},
+        {100.f,50.f,0.f,1.f,D3DCOLOR_ARGB(255,0,0,255)}
     };
 
-    if(FAILED(Renderer::GetInst()->GetDevice()->CreateVertexBuffer(sizeof(vertices),0,FVF,D3DPOOL_DEFAULT,&m_pVB,NULL)))
+    if(FAILED(Renderer::GetInst()->GetDevice()->CreateVertexBuffer(3 * sizeof(VERTEX),0,FVF,D3DPOOL_DEFAULT,&m_pVB,NULL)))
         return false;
 
     void* pVertices;
@@ -33,10 +33,6 @@ bool Triangle::Init()
 }
 
 void Triangle::Release()
-{
-}
-
-void Triangle::Update()
 {
 }
 

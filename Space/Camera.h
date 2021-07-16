@@ -14,7 +14,6 @@ private:
 	bool cameraFreeView;
 
 	D3DXVECTOR2 rotation;
-
 	D3DXVECTOR2 mousePos;
 
 public:

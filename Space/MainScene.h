@@ -7,6 +7,8 @@ public:
 
 	Triangle* triangle;
 	Terrain* terrain;
+
+	Sprite* test;
 	
 	Camera* mainCamera;
 	

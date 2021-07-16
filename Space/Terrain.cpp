@@ -146,7 +146,7 @@ void Terrain::SetUpLights()
     light.Type = D3DLIGHT_DIRECTIONAL;
     light.Diffuse.r = 1.f;
     light.Diffuse.g = 1.f;
-    light.Diffuse.b = 0.f;
+    light.Diffuse.b = 1.f;
     vecDir = D3DXVECTOR3(1, 1, 1);
 
     D3DXVec3Normalize((D3DXVECTOR3*)&light.Direction, &vecDir);

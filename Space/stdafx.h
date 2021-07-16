@@ -21,7 +21,6 @@ inline void SafeDelete(T*& x);
 #include<vector>
 #include<string>
 #include<cmath>
-#include<mmsystem.h>
 //
 
 #include"Types.h"
@@ -32,6 +31,7 @@ inline void SafeDelete(T*& x);
 #include"Object.h"
 #include"ObjectMgr.h"
 #include"Camera.h"
+#include"Sprite.h"
 #include"Scene.h"
 #include"SceneDirector.h"
 #include"Triangle.h"

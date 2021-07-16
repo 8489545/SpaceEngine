@@ -1,7 +1,7 @@
 #include"stdafx.h"
 #include "Camera.h"
 Camera::Camera() :
-    vEyePt(0.f, 100.f, -256.f)
+    vEyePt(0.f, 3.f, -5.f)
     , rotation(0.f, 0.f)
     , vLookatPt(0.f, 0.f, 0.f)
     , vRightVec(0.f, 0.f, 0.f)
@@ -21,31 +21,32 @@ Camera::~Camera()
 
 void Camera::Rotate()
 {
-    if (INPUT->GetMousePos().x - 30 > mousePos.x)
+    if (INPUT->GetMousePos().x - 50 > mousePos.x)
     {
-        rotation.x += 0.3 * dt;
+        rotation.x += 1 * dt;
     }
-    if (INPUT->GetMousePos().x + 30 < mousePos.x)
+    if (INPUT->GetMousePos().x + 50 < mousePos.x)
     {
-        rotation.x -= 0.3 * dt;
+        rotation.x -= 1 * dt;
     }
-    if (INPUT->GetMousePos().y - 30 > mousePos.y)
+    if (INPUT->GetMousePos().y - 50 > mousePos.y)
     {
-        rotation.y += 0.3 * dt;
+        rotation.y += 1 * dt;
     }
-    if (INPUT->GetMousePos().y + 30 < mousePos.y)
+    if (INPUT->GetMousePos().y + 50 < mousePos.y)
     {
-        rotation.y -= 0.3 * dt;
+        rotation.y -= 1 * dt;
     }
 }
 
 void Camera::Update()
 {
     auto device = Renderer::GetInst()->GetDevice();
-
+    
     D3DXMATRIXA16 matRot;
     D3DXMATRIXA16 matRotX;
     D3DXMATRIXA16 matRotY;
+
     D3DXVECTOR3 vLook;
 
     D3DXMatrixRotationY(&matRotX, rotation.x);
@@ -94,7 +95,6 @@ void Camera::Update()
 void Camera::SetTransform()
 {
     Renderer::GetInst()->GetDevice()->SetTransform(D3DTS_WORLD, &matWorld);
-
     D3DXMatrixLookAtLH(&matView, &vEyePt, &vLookatPt, &vUpVec);
     Renderer::GetInst()->GetDevice()->SetTransform(D3DTS_VIEW, &matView);
 }
