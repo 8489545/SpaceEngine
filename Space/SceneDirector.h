@@ -10,7 +10,7 @@ public:
 
 	void ChangeScene(Scene* newScene);
 
-	void Update(float deltaTime, float time);
+	void Update();
 	void Render();
 
 };

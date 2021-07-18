@@ -13,9 +13,6 @@ void MainScene::Init()
 {
     terrain = Terrain::Create(L"Painting/terrain.png", L"Painting/height.bmp");
 
-    test = Sprite::Create(L"Painting/Test.png");
-    test->SetPosition(100, 100);
-
     mainCamera = new Camera();
     subCamera = new Camera();
 
@@ -37,7 +34,7 @@ void MainScene::Release()
 {
 }
 
-void MainScene::Update(float deltaTime, float time)
+void MainScene::Update()
 {
     if (INPUT->GetKey('1') == KeyState::DOWN)
         nowCameraIndex = 0;
@@ -49,10 +46,5 @@ void MainScene::Update(float deltaTime, float time)
 
 void MainScene::Render()
 {
-    //terrain->Render();
-    //cube->Render();
-    //triangle->Render();
-    //test->Render();
-    
     box->Render();
 }

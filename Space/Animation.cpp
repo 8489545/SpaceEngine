@@ -67,24 +67,12 @@ void Animation::Update(float deltaTime, float time)
 	m_Anim.at(m_CurrentFrame)->G = G;
 	m_Anim.at(m_CurrentFrame)->B = B;
 
-	m_Anim.at(m_CurrentFrame)->Update(deltaTime, time);
+	m_Anim.at(m_CurrentFrame)->Update();
 
 }
 
 void Animation::Render()
 {
-	if (m_Parent)
-	{
-		SetRect(&m_Parent->m_Collision, m_Parent->m_Position.x - m_Size.x / 2, m_Parent->m_Position.y - m_Size.y / 2,
-			m_Parent->m_Position.x + m_Size.x / 2, m_Parent->m_Position.y + m_Size.y / 2);
-
-		m_Parent->m_Size = m_Size;
-	}
-	else
-	{
-		SetRect(&m_Collision, m_Position.x - m_Size.x / 2, m_Position.y - m_Size.y / 2,
-			m_Position.x + m_Size.x / 2, m_Position.y + m_Size.y / 2);
-	}
 
 	m_Anim.at(m_CurrentFrame)->Render();
 }

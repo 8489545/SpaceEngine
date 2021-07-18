@@ -2,19 +2,11 @@
 class GameObject
 {
 public:
+	LPDIRECT3DDEVICE9 device;
 	GameObject* m_Parent;
+	Transform* m_Transform;
 
 public:
-	Matrix m_wMat;
-	Vec2 m_Position;
-	Vec2 m_Scale;
-	Vec2 m_Size;
-	Vec2 m_RotationCenter;
-	Vec2 m_ScaleCenter;
-
-	float m_Radius;
-	float m_Rotation;
-
 	bool m_Destroy;
 	RECT m_Collision;
 
@@ -28,20 +20,12 @@ public:
 	GameObject();
 	~GameObject();
 
-
-protected:
-	Matrix GetMatrix();
-
 public:
-	virtual void Update(float deltaTime, float time);
+	virtual void Update();
 	virtual void Render();
 	virtual void OnCollision(GameObject* other);
 
 public:
-	void Translate(float x, float y);
-	void SetScale(float x, float y);
-	void SetPosition(float x, float y);
-	void Rotate(float r);
 	void SetDestroy(bool destroy) { m_Destroy = destroy; }
 	void SetTag(const std::string tag);
 	void SetParent(GameObject* obj);

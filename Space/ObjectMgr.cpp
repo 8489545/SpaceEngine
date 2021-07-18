@@ -62,12 +62,12 @@ void ObjectMgr::DeleteObject(std::string tag)
 	}
 }
 
-void ObjectMgr::Update(float deltaTime, float time)
+void ObjectMgr::Update()
 {
 	DeleteCheak();
 	for (const auto& iter : m_Objects)
 	{
-		(iter)->Update(deltaTime, time);
+		(iter)->Update();
 	}
 }
 

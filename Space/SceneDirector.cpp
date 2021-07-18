@@ -24,13 +24,13 @@ void SceneDirector::ChangeScene(Scene* newScene)
 	m_CurrentScene->Init();
 }
 
-void SceneDirector::Update(float deltaTime, float time)
+void SceneDirector::Update()
 {
 	Input::GetInst()->Update();
-	ObjMgr->Update(deltaTime, time);
+	ObjMgr->Update();
 
 	if (m_CurrentScene)
-		m_CurrentScene->Update(deltaTime, time);
+		m_CurrentScene->Update();
 
 }
 

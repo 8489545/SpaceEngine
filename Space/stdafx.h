@@ -30,6 +30,7 @@ inline void SafeDelete(T*& x);
 #include"Input.h"
 #include"Renderer.h"
 #include"App.h"
+#include"Transform.h"
 #include"GameObject.h"
 #include"ObjectMgr.h"
 #include"Camera.h"

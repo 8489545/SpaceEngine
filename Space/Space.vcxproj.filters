@@ -31,6 +31,9 @@
     <Filter Include="Game\Object\Shape">
       <UniqueIdentifier>{a6169bb2-a770-4532-9c91-89c0c659d02d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Object\GameObject">
+      <UniqueIdentifier>{0803e30a-cd5e-4d6f-9312-2ba486e7ca35}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Space.cpp">
@@ -72,32 +75,35 @@
     <ClCompile Include="Animation.cpp">
       <Filter>FrameWork\Game</Filter>
     </ClCompile>
-    <ClCompile Include="GameObject.cpp">
-      <Filter>FrameWork\Game</Filter>
-    </ClCompile>
     <ClCompile Include="Scene.cpp">
       <Filter>FrameWork\Game</Filter>
     </ClCompile>
     <ClCompile Include="Renderer.cpp">
       <Filter>FrameWork\Render</Filter>
     </ClCompile>
-    <ClCompile Include="Triangle.cpp">
-      <Filter>Game\Object</Filter>
-    </ClCompile>
     <ClCompile Include="Types.cpp">
       <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="Terrain.cpp">
-      <Filter>Game\Object</Filter>
     </ClCompile>
     <ClCompile Include="Camera.cpp">
       <Filter>Game\Mgrs</Filter>
     </ClCompile>
-    <ClCompile Include="Cube.cpp">
-      <Filter>Game\Object</Filter>
-    </ClCompile>
     <ClCompile Include="Box.cpp">
       <Filter>Game\Object\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="Transform.cpp">
+      <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Cube.cpp">
+      <Filter>Game\Object\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Terrain.cpp">
+      <Filter>Game\Object\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Triangle.cpp">
+      <Filter>Game\Object\GameObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GameObject.cpp">
+      <Filter>Game\Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -137,17 +143,11 @@
     <ClInclude Include="Animation.h">
       <Filter>FrameWork\Game</Filter>
     </ClInclude>
-    <ClInclude Include="GameObject.h">
-      <Filter>FrameWork\Game</Filter>
-    </ClInclude>
     <ClInclude Include="Scene.h">
       <Filter>FrameWork\Game</Filter>
     </ClInclude>
     <ClInclude Include="Renderer.h">
       <Filter>FrameWork\Render</Filter>
-    </ClInclude>
-    <ClInclude Include="Triangle.h">
-      <Filter>Game\Object</Filter>
     </ClInclude>
     <ClInclude Include="MainScene.h">
       <Filter>Game\Object\Scene</Filter>
@@ -155,20 +155,29 @@
     <ClInclude Include="Types.h">
       <Filter>Main</Filter>
     </ClInclude>
-    <ClInclude Include="Terrain.h">
-      <Filter>Game\Object</Filter>
-    </ClInclude>
     <ClInclude Include="Camera.h">
       <Filter>Game\Mgrs</Filter>
-    </ClInclude>
-    <ClInclude Include="Cube.h">
-      <Filter>Game\Object</Filter>
     </ClInclude>
     <ClInclude Include="Box.h">
       <Filter>Game\Object\Shape</Filter>
     </ClInclude>
     <ClInclude Include="Shapes.h">
       <Filter>Game\Object\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Transform.h">
+      <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Cube.h">
+      <Filter>Game\Object\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Terrain.h">
+      <Filter>Game\Object\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Triangle.h">
+      <Filter>Game\Object\GameObject</Filter>
+    </ClInclude>
+    <ClInclude Include="GameObject.h">
+      <Filter>Game\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

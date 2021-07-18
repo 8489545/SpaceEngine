@@ -24,7 +24,7 @@ public:
 
 	void Release();
 	void DeleteCheak();
-	void Update(float deltaTime, float time);
+	void Update();
 	void Render();
 
 

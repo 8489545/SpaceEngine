@@ -24,7 +24,7 @@ public:
 	void Init();
 	void Release();
 
-	void Update(float deltaTime,float time);
+	void Update();
 	void Render();
 };
 
