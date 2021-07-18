@@ -1,7 +1,6 @@
 #pragma once
 class Sprite;
-class Object;
-class Animation : public Object
+class Animation : public GameObject
 {
 private:
 	std::vector<Sprite*> m_Anim;

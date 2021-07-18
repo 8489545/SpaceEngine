@@ -5,11 +5,11 @@
 class ObjectMgr : public Singleton<ObjectMgr>
 {
 public:
-	std::list<Object*> m_Objects;
+	std::list<GameObject*> m_Objects;
 
 	struct stLISTsort
 	{
-		bool operator() (const Object* pObject1, const Object* pObject2) const
+		bool operator() (const GameObject* pObject1, const GameObject* pObject2) const
 		{
 			if (pObject1->m_Layer < pObject2->m_Layer)
 				return TRUE;
@@ -31,9 +31,9 @@ public:
 
 
 public:
-	void AddObject(Object* obj, const std::string tag);
-	void RemoveObject(Object* obj);
-	void CollisionCheak(Object* obj, const std::string tag);
+	void AddObject(GameObject* obj, const std::string tag);
+	void RemoveObject(GameObject* obj);
+	void CollisionCheak(GameObject* obj, const std::string tag);
 	void DeleteObject(std::string tag);
 
 };

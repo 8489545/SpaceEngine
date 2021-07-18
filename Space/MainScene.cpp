@@ -29,6 +29,8 @@ void MainScene::Init()
 
     cube = new Cube();
     cube->Init();
+
+    box = new Box();
 }
 
 void MainScene::Release()
@@ -48,7 +50,9 @@ void MainScene::Update(float deltaTime, float time)
 void MainScene::Render()
 {
     //terrain->Render();
-    cube->Render();
-    triangle->Render();
+    //cube->Render();
+    //triangle->Render();
     //test->Render();
+    
+    box->Render();
 }

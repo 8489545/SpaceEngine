@@ -9,6 +9,8 @@ public:
 	Terrain* terrain;
 	Cube* cube;
 
+	Box* box;
+
 	Sprite* test;
 	
 	Camera* mainCamera;

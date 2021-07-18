@@ -21,12 +21,12 @@
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="App.cpp" />
+    <ClCompile Include="Box.cpp" />
     <ClCompile Include="Camera.cpp" />
     <ClCompile Include="Cube.cpp" />
-    <ClCompile Include="EffectMgr.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="MainScene.cpp" />
-    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="ObjectMgr.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="ResourceMgr.cpp" />
@@ -47,17 +47,18 @@
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="App.h" />
+    <ClInclude Include="Box.h" />
     <ClInclude Include="Camera.h" />
     <ClInclude Include="Cube.h" />
-    <ClInclude Include="EffectMgr.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="MainScene.h" />
-    <ClInclude Include="Object.h" />
+    <ClInclude Include="GameObject.h" />
     <ClInclude Include="ObjectMgr.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="ResourceMgr.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="SceneDirector.h" />
+    <ClInclude Include="Shapes.h" />
     <ClInclude Include="Singleton.h" />
     <ClInclude Include="SoundMgr.h" />
     <ClInclude Include="Sprite.h" />

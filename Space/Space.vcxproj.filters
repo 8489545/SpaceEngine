@@ -28,6 +28,9 @@
     <Filter Include="FrameWork\Game">
       <UniqueIdentifier>{33340615-6e6c-4b99-a6a3-d0da7f72a1fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\Object\Shape">
+      <UniqueIdentifier>{a6169bb2-a770-4532-9c91-89c0c659d02d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Space.cpp">
@@ -54,9 +57,6 @@
     <ClCompile Include="Texture.cpp">
       <Filter>FrameWork\Render</Filter>
     </ClCompile>
-    <ClCompile Include="EffectMgr.cpp">
-      <Filter>Game\Mgrs</Filter>
-    </ClCompile>
     <ClCompile Include="ObjectMgr.cpp">
       <Filter>Game\Mgrs</Filter>
     </ClCompile>
@@ -72,7 +72,7 @@
     <ClCompile Include="Animation.cpp">
       <Filter>FrameWork\Game</Filter>
     </ClCompile>
-    <ClCompile Include="Object.cpp">
+    <ClCompile Include="GameObject.cpp">
       <Filter>FrameWork\Game</Filter>
     </ClCompile>
     <ClCompile Include="Scene.cpp">
@@ -95,6 +95,9 @@
     </ClCompile>
     <ClCompile Include="Cube.cpp">
       <Filter>Game\Object</Filter>
+    </ClCompile>
+    <ClCompile Include="Box.cpp">
+      <Filter>Game\Object\Shape</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -122,9 +125,6 @@
     <ClInclude Include="Texture.h">
       <Filter>FrameWork\Render</Filter>
     </ClInclude>
-    <ClInclude Include="EffectMgr.h">
-      <Filter>Game\Mgrs</Filter>
-    </ClInclude>
     <ClInclude Include="ObjectMgr.h">
       <Filter>Game\Mgrs</Filter>
     </ClInclude>
@@ -137,7 +137,7 @@
     <ClInclude Include="Animation.h">
       <Filter>FrameWork\Game</Filter>
     </ClInclude>
-    <ClInclude Include="Object.h">
+    <ClInclude Include="GameObject.h">
       <Filter>FrameWork\Game</Filter>
     </ClInclude>
     <ClInclude Include="Scene.h">
@@ -163,6 +163,12 @@
     </ClInclude>
     <ClInclude Include="Cube.h">
       <Filter>Game\Object</Filter>
+    </ClInclude>
+    <ClInclude Include="Box.h">
+      <Filter>Game\Object\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="Shapes.h">
+      <Filter>Game\Object\Shape</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

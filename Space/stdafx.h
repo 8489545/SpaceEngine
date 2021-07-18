@@ -15,6 +15,8 @@ inline void SafeDelete(T*& x);
 #include<iostream>
 #include<d3d9.h>
 #include<d3dx9.h>
+#include<d3dx9math.h>
+#include<d3dx9shape.h>
 #include<map>
 #include<list>
 #include<ctime>
@@ -28,15 +30,14 @@ inline void SafeDelete(T*& x);
 #include"Input.h"
 #include"Renderer.h"
 #include"App.h"
-#include"Object.h"
+#include"GameObject.h"
 #include"ObjectMgr.h"
 #include"Camera.h"
 #include"Sprite.h"
 #include"Scene.h"
 #include"SceneDirector.h"
-#include"Triangle.h"
-#include"Cube.h"
 #include"Terrain.h"
+#include"Shapes.h"
 //
 
 template<class T>

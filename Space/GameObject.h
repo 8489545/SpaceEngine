@@ -1,8 +1,10 @@
 #pragma once
-class Object
+class GameObject
 {
 public:
-	Object* m_Parent;
+	GameObject* m_Parent;
+
+public:
 	Matrix m_wMat;
 	Vec2 m_Position;
 	Vec2 m_Scale;
@@ -18,12 +20,13 @@ public:
 
 	bool m_Visible;
 
+public:
 	int m_Layer;
 	std::string m_Tag;
 
 public:
-	Object();
-	~Object();
+	GameObject();
+	~GameObject();
 
 
 protected:
@@ -32,7 +35,7 @@ protected:
 public:
 	virtual void Update(float deltaTime, float time);
 	virtual void Render();
-	virtual void OnCollision(Object* other);
+	virtual void OnCollision(GameObject* other);
 
 public:
 	void Translate(float x, float y);
@@ -41,7 +44,7 @@ public:
 	void Rotate(float r);
 	void SetDestroy(bool destroy) { m_Destroy = destroy; }
 	void SetTag(const std::string tag);
-	void SetParent(Object* obj);
+	void SetParent(GameObject* obj);
 public:
 	bool GetDestroy() { return m_Destroy; }
 };

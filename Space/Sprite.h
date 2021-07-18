@@ -1,10 +1,9 @@
 #pragma once
 class Texture;
-class Sprite : public Object
+class Sprite : public GameObject
 {
 	LPD3DXSPRITE m_pSp;
 	Texture* m_Texture;
-
 
 public:
 	Sprite();

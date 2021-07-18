@@ -25,7 +25,7 @@ void ObjectMgr::DeleteCheak()
 	{
 		if ((*iter)->GetDestroy())
 		{
-			Object* temp = (*iter);
+			GameObject* temp = (*iter);
 			iter = m_Objects.erase(iter);
 			SafeDelete(temp);
 		}
@@ -35,7 +35,7 @@ void ObjectMgr::DeleteCheak()
 		}
 	}
 }
-void ObjectMgr::CollisionCheak(Object* obj, const std::string tag)
+void ObjectMgr::CollisionCheak(GameObject* obj, const std::string tag)
 {
 	for (auto& iter : m_Objects)
 	{
@@ -81,13 +81,13 @@ void ObjectMgr::Render()
 	}
 }
 
-void ObjectMgr::AddObject(Object* obj, const std::string tag)
+void ObjectMgr::AddObject(GameObject* obj, const std::string tag)
 {
 	m_Objects.push_back(obj);
 	obj->SetTag(tag);
 }
 
-void ObjectMgr::RemoveObject(Object* obj)
+void ObjectMgr::RemoveObject(GameObject* obj)
 {
 	if (obj)
 		obj->SetDestroy(true);

@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include"Sprite.h"
-#include"Object.h"
+#include"GameObject.h"
 #include "Animation.h"
 #include"App.h"
 

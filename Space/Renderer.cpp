@@ -61,6 +61,7 @@ bool Renderer::Init(int width, int height, bool windowMode)
 		}
 	}
 
+	m_pDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	m_pDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
 	m_pDevice->SetRenderState(D3DRS_ZENABLE, true);
 
