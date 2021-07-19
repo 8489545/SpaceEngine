@@ -42,6 +42,8 @@ void MainScene::Update()
         nowCameraIndex = 1;
 
     Cameras[nowCameraIndex]->Update();
+
+    box->Update();
 }
 
 void MainScene::Render()

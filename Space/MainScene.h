@@ -10,8 +10,6 @@ public:
 	Cube* cube;
 
 	Box* box;
-
-	Sprite* test;
 	
 	Camera* mainCamera;
 	Camera* subCamera;

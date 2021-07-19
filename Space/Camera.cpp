@@ -1,7 +1,7 @@
 #include"stdafx.h"
 #include "Camera.h"
 Camera::Camera() :
-    vEyePt(0.f, 3.f, -5.f)
+    vEyePt(0.f, 0, 0)
     , rotation(0.f, 0.f)
     , vLookatPt(0.f, 0.f, 0.f)
     , vRightVec(0.f, 0.f, 0.f)

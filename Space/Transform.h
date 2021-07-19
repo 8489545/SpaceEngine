@@ -9,7 +9,12 @@ public:
     D3DXVECTOR3 m_Rotation;
     D3DXVECTOR3 m_Scale;
 
+private:
     Matrix matScale;
+    Matrix matRotation;
+    Matrix matTranslate;
+
+    Matrix matWorld;
 
 public:
     Transform();
