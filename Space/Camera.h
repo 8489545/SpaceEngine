@@ -9,23 +9,22 @@ private:
 	D3DXVECTOR3 vEyePt;
 	D3DXVECTOR3 vLookatPt;
 	D3DXVECTOR3 vUpVec;
-	D3DXVECTOR3 vRightVec;
-
-	bool cameraFreeView;
-
-	D3DXVECTOR2 rotation;
-	D3DXVECTOR2 mousePos;
 
 public:
 	Camera();
 	virtual ~Camera();
 
-	bool onClick;
-
 	float cameraSpeed;
-
-	void Rotate();
+	bool cameraFreeView;
 
 	void Update();
 	void SetTransform();
+
+	void FrontTranslate(float speed);
+	void SideTranslate(float speed);
+
+	void RotationCross(float angle);
+	void RotationUp(float angle);
+
+	void Translate();
 };

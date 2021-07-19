@@ -5,6 +5,10 @@ typedef struct D3DXMATRIX Matrix;
 
 #define dt App::GetInst()->DeltaTime
 #define gt App::GetInst()->Time
+
+#define WINSIZEX App::GetInst()->m_Width
+#define WINSIZEY App::GetInst()->m_Height
+
 #define _USE_MATH_DEFINES
 
 template<class T>
